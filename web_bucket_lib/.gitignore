@@ -1,0 +1,19 @@
+# node / tooling
+node_modules/
+dist/
+build/
+.vscode/
+*.log
+
+# env / secrets
+.env
+.env.*
+*.local
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Supabase local/project artifacts
+.supabase/
+
