@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <title>Supabase Storage – Minimal UI</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Supabase Storage Demo (Vanilla JS)</h1>
+
+      <section class="card">
+        <label for="bucketName">Bucket name</label>
+        <div class="row">
+          <input id="bucketName" type="text" placeholder="e.g. demo-bucket" />
+          <button id="btnCreateBucket" class="primary">Create bucket</button>
+        </div>
+
+        <div class="row">
+          <input id="fileInput" type="file" />
+          <button id="btnUpload" class="primary">Upload → bucket</button>
+        </div>
+
+        <div class="row">
+          <button id="btnList" class="ghost">List files in bucket</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Files</h2>
+        <ul id="fileList" class="files"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Logs</h2>
+        <pre id="log" class="log"></pre>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+<!--https://chatgpt.com/share/68d2345a-70a8-8004-9a57-02e3cde5fec4--> 

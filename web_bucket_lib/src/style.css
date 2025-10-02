@@ -1,0 +1,70 @@
+:root {
+  --bg: #0b0f14;
+  --fg: #e7eef7;
+  --muted: #9fb0c3;
+  --accent: #4cc38a;
+  --accent-2: #8fb7ff;
+  --border: #1d2633;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: linear-gradient(180deg, #0b0f14, #0e1522);
+  color: var(--fg);
+}
+
+.wrap { max-width: 920px; margin: 24px auto; padding: 0 16px; }
+h1 { font-size: 26px; margin: 0 0 16px; }
+h2 { font-size: 18px; margin: 0 0 8px; color: var(--muted); }
+
+.card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 12px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.row { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
+
+input[type="text"], input[type="file"] {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1624;
+  color: var(--fg);
+}
+
+button {
+  border: 1px solid var(--border);
+  background: #121b2b;
+  color: var(--fg);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button.primary { border-color: #244d3d; background: #13251d; }
+button.primary:hover { outline: 1px solid var(--accent); }
+button.ghost { background: transparent; }
+button.small { padding: 6px 10px; font-size: 12px; }
+
+.files { list-style: none; margin: 0; padding: 0; }
+.files li {
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 1px dashed var(--border); padding: 10px 0;
+}
+.files code { color: var(--accent-2); }
+
+.log {
+  min-height: 120px;
+  max-height: 260px;
+  overflow: auto;
+  background: #0a0f18;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  color: #c8d4e6;
+}
