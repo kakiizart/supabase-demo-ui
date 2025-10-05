@@ -9,6 +9,7 @@ build/
 .env
 .env.*
 *.local
+server.env
 
 # OS junk
 .DS_Store
@@ -16,4 +17,5 @@ Thumbs.db
 
 # Supabase local/project artifacts
 .supabase/
+
 
