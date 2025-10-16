@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <title>Supabase Storage – Minimal UI</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="wrap two-col">
+      <!-- LEFT PANEL: Controls -->
+      <section class="left">
+        <h1>Supabase Storage Demo (Vanilla JS)</h1>
+
+        <!-- Step 1: Create Bucket -->
+        <section class="card">
+          <h2>Step 1 — Create bucket</h2>
+          <label for="bucketName">Bucket name</label>
+          <div class="row">
+            <input id="bucketName" type="text" placeholder="e.g. demo-bucket" />
+            <button id="btnCreateBucket" class="primary">Create</button>
+          </div>
+          <p class="hint">
+            After creation, the bucket will appear in the selector below and be selected by default.
+          </p>
+        </section>
+
+        <!-- Step 2: Select & Upload -->
+        <section class="card">
+          <h2>Step 2 — Select & upload</h2>
+
+          <div class="row">
+            <label class="sr-only" for="bucketSelect">Select bucket</label>
+            <select id="bucketSelect" class="select"></select>
+            <button id="btnRefreshBuckets" class="ghost small">↻ Refresh</button>
+          </div>
+
+          <!-- Drop Zone -->
+          <div id="dropZone" class="dropzone" tabindex="0" aria-label="Drop images here">
+            <div>
+              <strong>Drag & Drop Images</strong>
+              <div class="muted">PNG, JPG, JPEG, GIF, WEBP</div>
+              <div class="or">or</div>
+              <button id="btnPickFiles" class="small">Choose files</button>
+              <input id="fileInput" type="file" multiple accept="image/*" hidden />
+            </div>
+          </div>
+
+          <div class="row">
+            <button id="btnUpload" class="primary">Upload selected file(s)</button>
+            <button id="btnLoadGallery" class="ghost">Load gallery</button>
+          </div>
+
+          <div id="status" class="status info" role="status" aria-live="polite"></div>
+          <div id="studioLink" class="studio-link"></div>
+        </section>
+
+        <!-- Logs -->
+        <section class="card">
+          <h2>Logs</h2>
+          <pre id="log" class="log"></pre>
+        </section>
+      </section>
+
+      <!-- RIGHT PANEL: Gallery -->
+      <section class="right card">
+        <div class="gallery-head">
+          <h2>Gallery</h2>
+          <span id="galleryCount" class="muted"></span>
+        </div>
+        <div id="gallery" class="grid"></div>
+        <div id="emptyState" class="empty">
+          No images yet. Choose a bucket and click “Load gallery”.
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button id="lightboxClose" class="lightbox-close" aria-label="Close">✕</button>
+      <img id="lightboxImg" alt="Preview" />
+      <div id="lightboxCaption" class="caption"></div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

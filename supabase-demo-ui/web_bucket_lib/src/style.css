@@ -1,0 +1,170 @@
+/* src/style.css — Minimal styles for bucket creation + drag & drop upload + gallery grid + lightbox */
+
+:root {
+  --bg: #0b0f14;
+  --fg: #e7eef7;
+  --muted: #9fb0c3;
+  --accent: #4cc38a;
+  --accent-2: #8fb7ff;
+  --border: #1d2633;
+  --yellow: #f7d36b;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: linear-gradient(180deg, #0b0f14, #0e1522);
+  color: var(--fg);
+}
+
+.wrap { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+h1 { font-size: 26px; margin: 0 0 16px; }
+h2 { font-size: 18px; margin: 0 8px 8px 0; color: var(--muted); }
+
+.card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 12px 0;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.row { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
+.hint { color: var(--muted); font-size: 12px; margin: 6px 0 0; }
+
+input[type="text"], input[type="file"], .select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f1624;
+  color: var(--fg);
+}
+
+button {
+  border: 1px solid var(--border);
+  background: #121b2b;
+  color: var(--fg);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+button.primary { border-color: #244d3d; background: #13251d; }
+button.primary:hover { outline: 1px solid var(--accent); }
+button.ghost { background: transparent; }
+button.small { padding: 6px 10px; font-size: 12px; }
+
+.log {
+  min-height: 120px;
+  max-height: 260px;
+  overflow: auto;
+  background: #0a0f18;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  color: #c8d4e6;
+}
+
+.status { margin-top: 10px; font-size: 13px; }
+.status.success { color: #7ce38b; }
+.status.warning { color: #f2b15d; }
+.status.error { color: #ff7a7a; }
+.status.info { color: #8aa1b8; }
+
+.studio-link { margin-top: 6px; }
+.studio-link a { color: var(--yellow); text-decoration: underline; }
+
+.two-col {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 16px;
+}
+.left { min-width: 0; }
+.right { min-width: 0; }
+.gallery-head { display: flex; align-items: center; justify-content: space-between; }
+
+.dropzone {
+  border: 2px dashed #243043;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  background: #0c1220;
+  outline: none;
+}
+.dropzone.drag-over {
+  border-color: var(--accent);
+  background: #0e1829;
+}
+.dropzone .muted { color: var(--muted); font-size: 12px; margin-top: 4px; }
+.dropzone .or { color: var(--muted); font-size: 12px; margin: 8px 0; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(160px, 1fr) );
+  gap: 10px;
+}
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0a0f18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.thumb .cap {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.5));
+  padding: 6px 8px;
+  font-size: 12px;
+}
+
+.empty {
+  margin-top: 8px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(4px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 92vw; max-height: 82vh;
+  border-radius: 12px; border: 1px solid var(--border);
+  box-shadow: 0 12px 40px rgba(0,0,0,.6);
+}
+.lightbox-close {
+  position: absolute; top: 20px; right: 24px;
+}
+.caption {
+  color: var(--muted);
+  max-width: 92vw;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+@media (max-width: 980px) {
+  .two-col { grid-template-columns: 1fr; }
+}
